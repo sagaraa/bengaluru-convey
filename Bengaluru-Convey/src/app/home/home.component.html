@@ -1,0 +1,77 @@
+<!-- <div>
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+  >
+  </canvas>
+</div> -->
+
+<div class="active-trip">
+  <h3 class="live-main">Enjoy your {{liveTrip?.rideType}} service !!</h3>
+  <p class="live-sub">boarded from {{liveTrip?.sourceStation}}</p>
+</div>
+<div class="profile">
+    <div class="details passtype">{{customerData?.passType}}</div><br>
+    <h3 class="name">{{customerData?.fName}} {{customerData?.lName}}</h3>
+    <div class="details balance">Current Balance :</div><br>
+    <div class="details balance-value">{{customerData?.balance}}</div><br>
+    <div class="details cardNo">Issued card</div>
+    <div class="details contact">Contact</div> <br>
+    <div class="details cardNo-value">{{customerData?.cardNo}}</div>
+    <div class="details contact-value">{{customerData?.phone}}</div><br>
+    <div class="recharge-now">
+      <a class="btn">Recharge Now</a>
+    </div>
+    </div>
+
+    <select #start type="text" placeholder="from">
+        <option *ngFor="let stop of stops" (value)="stop">{{stop}}</option>
+      </select>
+      <select #end type="text" placeholder="from">
+          <option *ngFor="let stop of stops" (value)="stop">{{stop}}</option>
+        </select>
+    <input type="submit" (click)="searchRoute(start.value, end.value)"/>
+    <div *ngIf="bestRoute">
+    <p *ngFor="let route of bestRoute">
+          <span class="route">{{route}}</span><br><span class="symbol">&darr;</span>
+    </p>
+    </div>
+    <div class="defaulters" *ngIf="possibleRoutes">
+        <h3>User Details</h3>
+        <table>
+          <tr>
+            <th>Route Id</th>
+            <th>Fare</th>
+            <th>Type</th>
+            <!-- <th></th> -->
+          </tr>
+          <tr *ngFor="let possibleRoute of possibleRoutes">
+            <td>{{possibleRoute?.routeId}}</td>
+            <td>{{possibleRoute?.fare}}</td>
+            <td>{{possibleRoute?.type}}</td>
+            <!-- <td><a href="">Manage User</a></td> -->
+          </tr>
+        </table>
+      </div>
+
+
+    <div class="history">
+      <h3 class="history-heading">Previous Rides</h3>
+      <div class="clearfix">
+          <div class="stations" *ngFor="let trip of previousTrips">
+              <p class="type">{{trip?.rideType}}</p>
+              <p class="from">{{trip?.sourceStation}}</p>
+              <p class="between">&rarr;</p>
+              <p class="to">{{trip?.destinationStation}}</p>
+              <p><strong class="fare">{{trip?.fare}}  &#8377;</strong>
+                <strong class="distance">{{trip?.distance}} Km</strong>
+                </p>
+            </div>
+      </div>
+
+
+    </div>

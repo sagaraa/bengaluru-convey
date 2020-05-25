@@ -1,0 +1,72 @@
+<div class="admin-dashboard">
+  <div class="left-nav">
+    <h3>FROM</h3>
+    <input type="" placeholder="Start Point" />
+    <h3>TO</h3>
+    <input type="" placeholder="End Point" />
+
+    <h3>SELECT DURATION</h3>
+    <select name="" id="">
+      <option value="7days">Last 7 days</option>
+      <option value="30days">Last 30 days</option>
+      <option value="90days">Last 90 days</option>
+    </select>
+
+    <h3>Type:</h3>
+    <select name="" id="">
+      <option value="Bus">Bus</option>
+      <option value="Train">Train</option>
+    </select>
+  </div>
+  <div class="main-content">
+    <h2>Traveler Frequency</h2>
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      [colors] = "colors"
+    >
+    </canvas>
+    <h2>Revenue</h2>
+    <canvas
+      baseChart
+      [datasets]="barChartData1"
+      [labels]="barChartLabels1"
+      [options]="barChartOptions1"
+      [legend]="barChartLegend1"
+      [chartType]="barChartType1"
+      [colors] = "colors1"
+    >
+    </canvas>
+
+    <h2>Top Defaulters</h2>
+    <canvas
+      baseChart
+      [datasets]="barChartData2"
+      [labels]="barChartLabels2"
+      [options]="barChartOptions2"
+      [legend]="barChartLegend2"
+      [chartType]="barChartType2"
+      [colors] = "colors2"
+    >
+    </canvas>
+  </div>
+</div>
+<div class="defaulters">
+    <h3>Defaulters</h3>
+    <table>
+      <tr>
+        <th>User ID</th>
+        <th>Balance</th>
+        <th>Card No</th>
+      </tr>
+      <tr *ngFor="let defaulter of defaulters">
+        <td>{{defaulter?.userId}}</td>
+        <td>{{defaulter?.balance}}</td>
+        <td>{{defaulter?.cardNo}}</td>
+      </tr>
+    </table>
+</div>

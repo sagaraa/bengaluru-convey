@@ -1,0 +1,18 @@
+<header *ngIf="isAuthenticated">
+  <div class="container">
+    <div class="logo"><a routerLink="">FICO<sup>®</sup></a></div>
+    <ul class="profile-nav">
+      <li>
+        <a (click)="toggleShow()">{{username}}</a>
+        <ul class="dropdown" *ngIf="dropdownShow">
+          <li><a routerLink="/profile">My Profile</a></li>
+          <li><a routerLink="/transaction">Transactions</a></li>
+          <li><a routerLink="/history">Travel History</a></li>
+          <li><a (click) = "logout()">Log Out</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/help">Help</a></li>
+      <li><a routerLink="/usermanagement">User Management</a></li>
+    </ul>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+<div class=he>
+<div class="help">
+  <h1 class="problemStatement">Please tell us, What's wrong with your ride???</h1>
+  <label class="container">Did bus/metro got break down
+      <input class="reason" type="radio" checked="checked" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Route was cloed?
+      <input class="reason" type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Driver/Conductor was unprofessional
+      <input class="reason" type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Bumpy ride??
+      <input class="reason" type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <input type="text" placeholder="Additional comments" name="fname">
+    <input type="submit" (click)="sendComplaint()"/>
+</div>
+
+<div id="dialog" #myDiv *ngIf="hideDialog" (click)="openDialog()">
+<h1>We regret your inconvenience !!! Your fare has been refunded to your wallet.</h1>
+</div>
+<div id="dialog"  #myDiv *ngIf="sorryDialog" (click)="sorryDialogOpen()">
+  <h1>Sorry you don't have any active ride.</h1>
+  </div>
+</div>
+

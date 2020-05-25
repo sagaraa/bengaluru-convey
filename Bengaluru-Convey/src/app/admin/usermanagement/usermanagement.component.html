@@ -1,0 +1,21 @@
+<div class="usermanagement-block">
+  <input #username type="text" placeholder="Please enter Username"/>
+  <input type="submit" (click)="submitForm(username.value)"/>
+  <div class="defaulters" *ngIf="searchedUser">
+    <h3>User Details</h3>
+    <table>
+      <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Type</th>
+        <!-- <th></th> -->
+      </tr>
+      <tr>
+        <td>{{searchedUser?.userId}}</td>
+        <td>{{searchedUser?.uName}}</td>
+        <td>{{searchedUser?.passType}}</td>
+        <!-- <td><a href="">Manage User</a></td> -->
+      </tr>
+    </table>
+  </div>
+</div>
